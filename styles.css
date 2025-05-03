@@ -1,0 +1,26 @@
+
+* {
+    background-color: aqua;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    width: 750px;
+    margin: auto;
+}
+
+.box {
+    background-color: grey;
+    border: solid 5px blue;
+    height: 30px;
+    width: 30px;
+    flex: 0 0 auto;
+}
+
+.box:hover {
+    background-color: black;
+}
