@@ -1,26 +1,30 @@
 
+body {
+    background-color: lightgrey;
+}
+
 * {
-    background-color: aqua;
+    box-sizing: border-box;
 }
 
 #container {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px;
-    width: 750px;
-    margin: auto;
+    background-color: brown;
+    margin: 12px auto;
+    width: 650px;
+    height: 650px;
+    border: 1px solid black;
 }
 
 .box {
+    display: flex;
+    flex-grow: 1;
     background-color: grey;
-    border: solid 5px blue;
-    height: 30px;
-    width: 30px;
-    flex: 0 0 auto;
+    border: 1px solid black;
 }
 
-.box:hover {
-    background-color: black;
+#numberBtn {
+    margin: 20px;
 }
