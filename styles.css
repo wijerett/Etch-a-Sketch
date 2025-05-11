@@ -1,6 +1,9 @@
 
 body {
-    background-color: lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
 }
 
 * {
@@ -8,23 +11,24 @@ body {
 }
 
 #container {
+    background-color: maroon;
+    gap: 0;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
-    background-color: brown;
-    margin: 12px auto;
-    width: 650px;
-    height: 650px;
-    border: 1px solid black;
+    justify-content: center;
+    margin: 60px;
 }
 
 .box {
     display: flex;
-    flex-grow: 1;
+    align-items: flex-start;
     background-color: grey;
-    border: 1px solid black;
 }
 
 #numberBtn {
+    width: 100px;
+    height: 55px;
     margin: 20px;
 }

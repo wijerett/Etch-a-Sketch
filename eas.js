@@ -1,34 +1,46 @@
-const container = document.getElementById("container");
 
+function grid(containerId, numberOfBoxes, containerSize = 600, gap = 0) {
+    const container = document.getElementById(containerId);
 
-
-
-
-function createGrid (numSquares) {
     container.innerHTML = "";
-    for (let i = 0; i < numSquares; i++) {
-        const box = document.createElement("div");
-        box.classList.add("box");
-        container.appendChild(box);
+
+    container.style.position = "relative";
+    container.style.width = `${containerSize}px`;
+    container.style.height = `${containerSize}px`;
+
+    const rows = Math.round(Math.sqrt(numberOfBoxes));
+    const cols = rows;
+    const boxSize = (containerSize - gap * (cols)) / cols;
     
+    for (let i = 0; i < numberOfBoxes; i++) {
+        const box = document.createElement("div");
+        box.style.width = `${boxSize}px`;
+        box.style.height = `${boxSize}px`;
+
         box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = "black";
+            box.style.backgroundColor = "#ffb6c1";
         });
+    container.appendChild(box);
     }
-};
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const containerId = "container";
+    const containerSize = 600;
+    const initialBoxes = 256;
+    const gap = 0;
 
-const numberBtn = document.querySelector("#numberBtn");
-numberBtn.addEventListener("click", () => {
-    const input = prompt("Number of squares per side: ");
-    for (let i = 0; i < input; i++);
+    grid(containerId, initialBoxes, containerSize, gap);
 
-    if (input >= 100 || input <= 0 || input === null) {
-        alert("invalid entry");
-        return;
-    } 
+    const numberBtn = document.querySelector("#numberBtn");
 
-    createGrid(input*input);
+    numberBtn.addEventListener("click", () => {
+        const input = prompt("Number of squares per side: ");
+        const gridSize = parseInt(input);
+        if (isNaN(gridSize) || gridSize <= 0 || gridSize > 100) {
+            alert("invalid entry");
+            return;
+        }
+        grid(containerId, gridSize * gridSize, containerSize, gap)
+    });
 });
-
-createGrid(256);
 
